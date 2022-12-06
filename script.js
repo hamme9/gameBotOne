@@ -5,11 +5,16 @@ const isNumber = function (num) {
 };
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    let num = Math.floor(Math.random() * max);
+    if (num == 0) { 
+        num = 100;
+      }
+    return num
 }
 
 const gameBot = function() {
     const x = getRandomInt(100);
+    console.log(x);
     let k = 10;
     function count() {
         console.log(x);
