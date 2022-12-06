@@ -16,12 +16,21 @@ const gameBot = function() {
         const number = prompt('Угадай число от 1 до 100');
         k--;
         switch(k > 0) {
+            case number === 0:
+                const reTry = confirm('Попытки закончились, хотите сыграть еще?');
+                if(reTry) {
+                    console.clear();
+                    gameBot();
+                }
+                return null;
             case number === null:
-                alert('Игра окончена');
+                confirm('Игра окончена');
+                console.clear();
                 return null;
             case number == x:
                 const restart = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
                 if (restart) {
+                    console.clear();
                     gameBot();
                 }
                 return number;
@@ -30,24 +39,23 @@ const gameBot = function() {
                 console.log(number);
                 break;
             case number < x:
-                alert('Загаданное число большеь, осталось попыток - ' + k);
+                alert('Загаданное число больше, осталось попыток - ' + k);
                 console.log(number);
                 break;
             case number > x:
-                alert('Загаданное число меньшеосталось попыток - ' + k);
+                alert('Загаданное число меньше, осталось попыток - ' + k);
                 console.log(number);
                 break;
             default: 
             const newTry = confirm('Попытки закончились, хотите сыграть еще?');
             if (newTry) {
+                console.clear();
                 gameBot();
             }
         }
         count();
-        // return k;
     }
     count();
-    // return x;
 };
 
 gameBot();
